@@ -13,3 +13,13 @@ Python
 Unity C#
 
 Reverse Engineering
+
+C++
+
+JAVA
+
+JavaScript
+
+JQuery
+
+Angular
