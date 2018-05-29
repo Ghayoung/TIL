@@ -23,3 +23,9 @@ JavaScript
 JQuery
 
 Angular
+
+Redis
+
+Node.js
+
+Spring boot
