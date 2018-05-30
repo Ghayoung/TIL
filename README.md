@@ -29,3 +29,11 @@ Redis
 Node.js
 
 Spring boot
+
+React
+
+Flux
+
+Redux
+
+Docker
