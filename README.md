@@ -39,3 +39,7 @@ Redux
 Docker
 
 Phoenix Server
+
+Scala
+
+Kotlin
