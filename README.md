@@ -23,3 +23,23 @@ JavaScript
 JQuery
 
 Angular
+
+Redis
+
+Node.js
+
+Spring boot
+
+React
+
+Flux
+
+Redux
+
+Docker
+
+Phoenix Server
+
+Scala
+
+Kotlin
