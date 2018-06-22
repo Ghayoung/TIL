@@ -52,5 +52,15 @@ public class Block {
 	public String getBlockHash() {
 		return Util.getHash(nonce + data);
 	}
+	
+	public void mine() {
+		while(true) {
+			if(getBlockHash().substring(0, 4).equals("0000")) {
+				System.out.println(blockID + "번째 블록의 채굴에 성공했습니다.");
+				break;
+		    }
+		    nonce++;
+		}
+	}
 
 }
