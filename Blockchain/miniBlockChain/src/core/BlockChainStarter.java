@@ -8,7 +8,8 @@ public class BlockChainStarter {
 	   block1.mine();
 	   block1.getInformation();
 	    
-	   Block block2 = new Block(2, block1.getBlockHash(), 0, "데이터");
+	   //Block block2 = new Block(2, block1.getBlockHash(), 0, "데이터");
+	   Block block2 = new Block(2, block1.getBlockHash(), 0, "변조된 데이터");
 	   block2.mine();
 	   block2.getInformation();
 	    
