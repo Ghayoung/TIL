@@ -38,6 +38,10 @@ public class BlockChainStarter {
 	  String text = "하영이가 홍섭이에게 100 코인 전송";
 	  System.out.println("원래 문장: " + text);
 	  
+	  //변경된 문장을 정의합니다.
+	  String textInfected = "하영이가 홍섭이에게 1000 코인 전송";
+	  System.out.println("변경된 문장: " + textInfected);
+	  
 	  //원래 문장에 대해 암호화를 수행해 서명 값(암호문)을 얻어냅니다.
 	  ecdsa.update(text.getBytes("UTF-8"));
 	  byte[] signatureByte = ecdsa.sign();
@@ -51,6 +55,10 @@ public class BlockChainStarter {
 	  //원래 문장을 공개키로 복호화해 검증합니다.
 	  signature.update(text.getBytes("UTF-8"));
 	  System.out.println("원래 문장 검증: " + signature.verify(signatureByte));
+	  
+	  //변경된 문장을 공개키로 검증합니다.
+	  signature.update(textInfected.getBytes("UTF-8"));
+	  System.out.println("변경된 문장 검증: " + signature.verify(signatureByte));
 	  
   }
 
