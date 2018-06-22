@@ -41,11 +41,11 @@ public class Block {
 		this.data = data;
 	}
 	
-	public Block(int blockID, int nonce, String data, String previousBlockHash) {
+	public Block(int blockID, String previousBlockHash, int nonce, String data) {
 		this.blockID = blockID;
+		this.previousBlockHash = previousBlockHash;
 		this.nonce = nonce;
 		this.data = data;
-		this.previousBlockHash = previousBlockHash;
 	}
 	
 	//현재 특정한 블록이 가지는 정보 출력
