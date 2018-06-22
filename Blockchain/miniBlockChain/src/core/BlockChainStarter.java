@@ -10,6 +10,7 @@ public class BlockChainStarter {
   public static void main(String[] args) {
 	  
 	  Block block = new Block(1, 0, "ตฅภฬลอ");
+	  block.mine();
 	  block.getInformation();
 
   }
