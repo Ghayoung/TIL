@@ -1,5 +1,4 @@
-# TIL
-Today I learned
+# TIL - Today I learned
 
 # Description
 ## Algorithm: 해결한 알고리즘 문제들
