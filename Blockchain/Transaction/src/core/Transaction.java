@@ -2,9 +2,9 @@ package core;
 
 public class Transaction {
 
-	String sender;
-	String receiver;
-	double amount;
+	String sender; //코인을 보낸 사람
+	String receiver; //코인을 받는 사람
+	double amount; //보낸 코인의 양
 	
 	public String getSender() {
 		return sender;
