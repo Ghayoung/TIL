@@ -18,7 +18,8 @@ public class BlockChainStarter {
 
 	  Block block3 = new Block(3, block2.getBlockHash(), 0, new ArrayList<Transaction>());
 	  block3.addTransaction(new Transaction("문병로", "황기태", 8.2));
-	  block3.addTransaction(new Transaction("이홍섭", "남하영", 0.4));
+	  //block3.addTransaction(new Transaction("이홍섭", "남하영", 0.4));
+	  block3.addTransaction(new Transaction("이홍섭", "남하영", 9.9));
 	  block3.mine();
 	  block3.showInformation();
 
