@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 import com.secutest.domain.User;
 
 @Component
+//사용자가 입력한 로그인 아이디와 비밀번호를 검사할 때 사용되는 클래스
 public class MyAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired UserService userService;
@@ -26,13 +27,16 @@ public class MyAuthenticationProvider implements AuthenticationProvider {
         return authenticate(loginId, passwd);
     }
 
+    /*사용자가 입력한 로그인 아이디와 비밀번호를 검사해야 할 때,
+    spring security 엔진에 의해서 이 클래스의 authenticate 메소드가 자동으로 호출된다.
+         사용자가 입력한 로그인 아이디와 비밀번호가 이 메소드의 파라미터로 전달된다.*/
     public Authentication authenticate(String loginId, String password) throws AuthenticationException {
         User user = userService.login(loginId, password);
-        if (user == null) return null;
+        if (user == null) return null; //검사가 실패하면 null 리턴
 
         List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
         String role = "";
-        switch (user.getUserType()) {
+        switch (user.getUserType()) { //userType에 따라 각각 권한 설정
         case "관리자": role = "ROLE_ADMIN"; break;
         case "교수": role = "ROLE_PROFESSOR"; break;
         case "학생": role = "ROLE_STUDENT"; break;
