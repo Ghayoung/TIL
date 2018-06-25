@@ -20,6 +20,10 @@ Today I learned - 하루동안 스터디한 내용을 기록합니다.
 2. EchoClientTest: Netty로 EchoClient 구현 예제
 3. EchoServerTest: Netty로 EchoServer 구현 예제
 
+## Spring Security
+1. remember-me-with-redis: redis를 이용한 remember-me 구현 예제
+2. spring-security-basic: spring security 기본 예제(강의자료 참고)
+
 ****
 # Now studying(★)/Want to study:
 * ★Algorithm
