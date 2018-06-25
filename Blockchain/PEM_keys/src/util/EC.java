@@ -38,4 +38,12 @@ public class EC {
 		
 	}
 	
+	private void writePemFile(Key key, String description, String filename) throws FileNotFoundException, IOException {
+		
+		Pem pemFile = new Pem(key, description);
+		pemFile.write(filename);
+		System.out.println(String.format("EC 암호키 %s을(를) %s 파일로 내보냈습니다.", description, filename));
+		
+	}
+	
 }
