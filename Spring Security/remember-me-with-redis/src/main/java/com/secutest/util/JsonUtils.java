@@ -35,5 +35,19 @@ public class JsonUtils {
 		return getInstance().objectMapper;
 	}
 
+	public static String toJson(Object value) {
+		try {
+			return getMapper().writeValueAsString(value);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 
+	public static byte[] toJsonAsByte(Object value) {
+		try {
+			return getMapper().writeValueAsBytes(value);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 }
