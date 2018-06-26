@@ -1,10 +1,13 @@
 package com.secutest.util;
 
+import java.io.BufferedReader;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -50,4 +53,40 @@ public class JsonUtils {
 			throw new RuntimeException(e);
 		}
 	}
+
+	public static <T> T fromJson(byte[] json, Class<T> cls) {
+		try {
+			return getMapper().readValue(json, cls);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public static <T> T fromJson(String json, Class<T> cls) {
+		try {
+			return getMapper().readValue(json, cls);
+		} catch (Exception e) {
+			logger.warn("Json parsing is failed. origin_json={}", json);
+			throw new RuntimeException(e);
+		}
+	}
+
+	public static <T> T fromJson(BufferedReader json, TypeReference<T> typeReference) {
+		try {
+			return getMapper().readValue(json, typeReference);
+		} catch (Exception e) {
+			logger.warn("Json parsing is failed. origin_json={}", json);
+			throw new RuntimeException(e);
+		}
+	}
+
+	public static <T> T fromJson(String json, TypeReference<T> typeReference) {
+		try {
+			return getMapper().readValue(json, typeReference);
+		} catch (Exception e) {
+			logger.warn("Json parsing is failed. origin_json={}", json);
+			throw new RuntimeException(e);
+		}
+	}
+
 }
