@@ -25,4 +25,28 @@ public class RolePermission {
     @JoinColumn(name = "roleId")
     private Role role;
 
+	public Long getPermissionId() {
+		return permissionId;
+	}
+
+	public void setPermissionId(Long permissionId) {
+		this.permissionId = permissionId;
+	}
+
+	public String getPermission() {
+		return permission;
+	}
+
+	public void setPermission(String permission) {
+		this.permission = permission;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 }
