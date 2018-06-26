@@ -1,6 +1,10 @@
 package com.secutest.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -9,5 +13,16 @@ import lombok.Data;
 @Entity
 @Table(name = "ROLE_PERMISSION")
 public class RolePermission {
+
+    @Id
+    @Column(name = "permissionId")
+    private Long permissionId;
+
+    @Column(name = "permission")
+    private String permission;
+
+    @ManyToOne
+    @JoinColumn(name = "roleId")
+    private Role role;
 
 }
