@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
@@ -86,6 +87,16 @@ public class JsonUtils {
 		} catch (Exception e) {
 			logger.warn("Json parsing is failed. origin_json={}", json);
 			throw new RuntimeException(e);
+		}
+	}
+
+	public static String toPrettyJson(String value) {
+		Object jsonObject = JsonUtils.fromJson(value, Object.class);
+		try {
+			return getMapper().writerWithDefaultPrettyPrinter().writeValueAsString(jsonObject);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+			return "";
 		}
 	}
 
