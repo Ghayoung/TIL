@@ -11,7 +11,6 @@ import org.springframework.security.web.authentication.rememberme.PersistentReme
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.stereotype.Service;
 
-import com.secutest.repository.RememberToken;
 import com.secutest.util.JsonUtils;
 
 @Service
@@ -33,6 +32,7 @@ public class PersistTokenRepository implements PersistentTokenRepository {
 	public void updateToken(String series, String tokenValue, Date lastUsed) {
 		String payload = stringRedisTemplate.opsForValue().get(series);
 		try {
+			//Json 객체에서 rememberToken을 리턴한다.
 			RememberToken rememberToken = JsonUtils.fromJson(payload, RememberToken.class);
 			rememberToken.setTokenValue(tokenValue);
 			rememberToken.setDate(lastUsed);
