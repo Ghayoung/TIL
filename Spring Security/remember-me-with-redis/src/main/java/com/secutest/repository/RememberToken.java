@@ -17,6 +17,14 @@ public class RememberToken {
 
 	private Date date; //토큰생성일
 
+	public RememberToken(String username, String series, String tokenValue, Date date) {
+		super();
+		this.username = username;
+		this.series = series;
+		this.tokenValue = tokenValue;
+		this.date = date;
+	}
+
 	public String getSeries() {
 		return series;
 	}
