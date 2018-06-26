@@ -25,8 +25,7 @@ import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 import com.secutest.repository.PersistTokenRepository;
-
-/*import com.secutest.repository.RolePermissionRepository;
+import com.secutest.repository.RolePermissionRepository;
 import com.secutest.repository.UserRepository;
 import com.secutest.security.api.filter.ApiTokenAuthenticationProcessingFilter;
 import com.secutest.security.api.token.ApiTokenFactory;
@@ -36,8 +35,7 @@ import com.secutest.security.common.filter.SecurityUserLoginProcessingFilter;
 import com.secutest.security.common.handler.SecurityUserAcessDeniedHandler;
 import com.secutest.security.common.handler.SecurityUserLoginHandler;
 import com.secutest.security.common.provider.SecurityAuthenticationProvider;
-import com.secutest.security.common.repository.PersistTokenRepository;
-import com.secutest.security.web.handler.WebSecurityUserLogoutHandler;*/
+import com.secutest.security.web.handler.WebSecurityUserLogoutHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -91,13 +89,24 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		httpSecurity.sessionManagement();
 		httpSecurity.authorizeRequests()
 				.antMatchers(securityUrlData.getLogin(), securityUrlData.getLogout(), securityUrlData.getRefreshToken())
-				.permitAll().anyRequest().authenticated().and().logout()
+				.permitAll()
+				.anyRequest()
+				.authenticated()
+				.and()
+				.logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher(securityUrlData.getLogout()))
-				.deleteCookies("JSESSIONID", rememberKey).logoutSuccessHandler(webSecurityUserLogoutHandler).and()
-				.rememberMe().key(rememberKey).rememberMeParameter(rememberKey)
-				.rememberMeServices(persistentTokenBasedRememberMeServices()).tokenValiditySeconds(3600).and()
-				.exceptionHandling().authenticationEntryPoint(securityUserAccessEntryPoint)
-				.accessDeniedHandler(securityUserAcessDeniedHandler).and()
+				.deleteCookies("JSESSIONID", rememberKey)
+				.logoutSuccessHandler(webSecurityUserLogoutHandler)
+				.and()
+				.rememberMe()
+				.key(rememberKey)
+				.rememberMeParameter(rememberKey)
+				.rememberMeServices(persistentTokenBasedRememberMeServices()).tokenValiditySeconds(3600)
+				.and()
+				.exceptionHandling()
+				.authenticationEntryPoint(securityUserAccessEntryPoint)
+				.accessDeniedHandler(securityUserAcessDeniedHandler)
+				.and()
 				.addFilterBefore(buildWebSecurityUserLoginProcessingFilter(),
 						UsernamePasswordAuthenticationFilter.class)
 				.addFilterBefore(buildApiSecurityUserLoginProcessingFilter(),
