@@ -55,9 +55,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         //roleIds를 통해 permission 리스트를 만든다
         List<String> permissions = rolePermissionRepository.permissions(roleIds);
 
+        //권한을 인증하여 리스트에 넣는다
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         permissions.stream()
                    .forEach(p -> grantedAuthorities.add(new SimpleGrantedAuthority(p)));
+
+        //userdetail 객체를 리턴한다
 		return new org.springframework.security.core.userdetails.User(username, password, grantedAuthorities);
 	}
 
