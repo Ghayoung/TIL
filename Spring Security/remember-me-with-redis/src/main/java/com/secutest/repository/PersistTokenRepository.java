@@ -11,7 +11,7 @@ import org.springframework.security.web.authentication.rememberme.PersistentReme
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.stereotype.Service;
 
-import com.secutest.security.common.repository.vo.RememberToken;
+import com.secutest.repository.RememberToken;
 import com.secutest.util.JsonUtils;
 
 @Service
