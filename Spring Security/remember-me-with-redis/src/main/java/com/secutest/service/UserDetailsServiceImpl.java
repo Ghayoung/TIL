@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
+import com.secutest.entity.User;
 import com.secutest.repository.RolePermissionRepository;
 import com.secutest.repository.UserRepository;
 
