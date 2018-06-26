@@ -33,4 +33,36 @@ public class Role {
     @OneToMany(mappedBy = "role", fetch = FetchType.EAGER ,cascade = CascadeType.PERSIST)
     private List<RolePermission> permissions;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<RolePermission> getPermissions() {
+		return permissions;
+	}
+
+	public void setPermissions(List<RolePermission> permissions) {
+		this.permissions = permissions;
+	}
+
 }
