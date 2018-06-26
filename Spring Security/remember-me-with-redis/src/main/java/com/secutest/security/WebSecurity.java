@@ -24,6 +24,8 @@ import org.springframework.security.web.util.matcher.OrRequestMatcher;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
+import com.secutest.repository.PersistTokenRepository;
+
 /*import com.secutest.repository.RolePermissionRepository;
 import com.secutest.repository.UserRepository;
 import com.secutest.security.api.filter.ApiTokenAuthenticationProcessingFilter;
@@ -108,6 +110,23 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) {
 		auth.authenticationProvider(securityAuthenticationProvider);
 	}
+
+	//configure code 2
+	 protected   void   configure2 ( HttpSecurity  http )   throws   Exception   {
+		 http . authorizeRequests ( ) . anyRequest ( ) . authenticated ( )
+						 . and ( )
+							 . formLogin ( )
+								 . loginPage ( "/login" )
+								 . permitAll ( )
+						 . and ( )
+							 . rememberMe ( )
+								 . rememberMeCookieName ( "javasampleapproach-remember-me" )
+								 . tokenValiditySeconds ( 24   *   60   *   60 )   // expired time = 1 day
+								 . tokenRepository ( persistentTokenRepository( ) )
+						 . and ( )
+							 . logout ( )
+							 . permitAll ( ) ;
+	 }
 
 	@Bean
 	public PersistentTokenBasedRememberMeServices persistentTokenBasedRememberMeServices() {
