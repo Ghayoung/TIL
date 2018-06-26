@@ -1,10 +1,13 @@
 package com.secutest.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -51,6 +54,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         //roleIds를 통해 permission 리스트를 만든다
         List<String> permissions = rolePermissionRepository.permissions(roleIds);
+
+        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+        permissions.stream()
+                   .forEach(p -> grantedAuthorities.add(new SimpleGrantedAuthority(p)));
+		return new org.springframework.security.core.userdetails.User(username, password, grantedAuthorities);
 	}
 
 }
