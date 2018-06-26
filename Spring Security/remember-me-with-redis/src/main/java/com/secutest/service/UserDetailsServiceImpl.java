@@ -22,7 +22,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		//DB에서 username으로 검색해서 user를 찾는다.
+        User user = userRepository.findFirstByUsername(username);
 
+        //user를 찾지 못하면 예외를 발생시킨다
+        if(user == null){
+            throw new UsernameNotFoundException("User is not exist!");
+        }
+
+        String password = user.getPassword();
 	}
 
 }
