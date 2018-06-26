@@ -27,4 +27,13 @@ public class JsonUtils {
 		objectMapper.configure(MapperFeature.DEFAULT_VIEW_INCLUSION, false);
 	}
 
+	public static JsonUtils getInstance() {
+		return new JsonUtils();
+	}
+
+	private static ObjectMapper getMapper() {
+		return getInstance().objectMapper;
+	}
+
+
 }
