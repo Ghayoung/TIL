@@ -24,12 +24,12 @@ import org.springframework.security.web.util.matcher.OrRequestMatcher;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
+import com.secutest.data.SecurityUrlData;
 import com.secutest.repository.PersistTokenRepository;
 import com.secutest.repository.RolePermissionRepository;
 import com.secutest.repository.UserRepository;
 import com.secutest.security.api.filter.ApiTokenAuthenticationProcessingFilter;
 import com.secutest.security.api.token.ApiTokenFactory;
-import com.secutest.security.common.data.SecurityUrlData;
 import com.secutest.security.common.entrypoint.SecurityUserAccessEntryPoint;
 import com.secutest.security.common.filter.SecurityUserLoginProcessingFilter;
 import com.secutest.security.common.handler.SecurityUserAcessDeniedHandler;
