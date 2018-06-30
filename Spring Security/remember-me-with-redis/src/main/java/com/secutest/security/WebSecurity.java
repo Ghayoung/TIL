@@ -93,6 +93,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 				.anyRequest()
 				.authenticated()
 				.and()
+				//로그아웃 설정 시작
 				.logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher(securityUrlData.getLogout()))
 				.deleteCookies("JSESSIONID", rememberKey)
