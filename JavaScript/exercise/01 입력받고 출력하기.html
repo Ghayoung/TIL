@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+	
+        var input = prompt('신장을 입력하세요', '신장');
+        var stature = Number(input);
+
+        var input = prompt('몸무게를 입력하세요', '몸무게');
+        var weight = Number(input);
+
+        var result = (stature - 100) * 0.9;
+
+        if (weight >= result) {
+            alert('적정 몸무게 이상');
+        }
+        else if (weight < result) {
+            alert('적정 몸무게 미달');
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
