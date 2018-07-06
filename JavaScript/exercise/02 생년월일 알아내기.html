@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+    
+        var front = prompt('주민등록번호 앞자리 입력');
+        var back = prompt('주민등록번호 뒷자리 입력');
+        year = (back / 1000000) >= 3 ? 2000 + parseInt(front / 10000) : 1900 + parseInt(front / 10000);
+        output = '';
+        output += '생년월일은 다음과 같습니다.\n';
+        output += year + '\n';
+        output += parseInt((front % 10000) / 100) + '\n';
+        output += parseInt(front % 100);
+        alert(output);
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>
