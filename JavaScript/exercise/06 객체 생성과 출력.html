@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+
+        var book = {
+            title: 'C프로그래밍',
+            price: 10000,
+            year: 2017
+        };
+
+        var output = '';
+        for (var key in book) {
+            output += key + ': ' + book[key] + '\n';
+        }
+        alert(output);
+		
+    </script>
+</head>
+<body>
+
+</body>
+</html>
