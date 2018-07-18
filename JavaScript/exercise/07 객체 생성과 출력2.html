@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+
+        var book = {
+            title: 'C프로그래밍',
+            price: 10000,
+            year: 2017
+        };
+
+        book.author = '윤성우';
+
+        var output = '';
+        with (book) {
+            output += 'title: ' + title + '\n';
+            output += 'price: ' + price + '\n';
+            output += 'year: ' + year + '\n';
+            output += 'author: ' + author + '\n';
+        }
+        alert(output);
+		
+    </script>
+</head>
+<body>
+
+</body>
+</html>
