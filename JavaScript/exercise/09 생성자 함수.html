@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+
+        function Book(title, price, year, author){
+            this.title = title;
+            this.price = price;
+            this.year = year;
+            this.author = author;
+        }
+        Book.prototype.toString = function () {
+            return '제목: ' + this.title + ' 가격: ' + this.price + ' 발행년도: ' + this.year + ' 저자: ' + this.author;
+        };
+
+        var books = [];
+        books.push(new Book('java', 10000, 2014, '정우성'));
+        books.push(new Book('database', 20000, 2013, '장동건'));
+        books.push(new Book('computer', 30000, 2009, '강동원'));
+
+        var output = '';
+        for (var i in books) {
+            output += books[i].toString() + '\n';
+        }
+        alert(output);
+
+        Book.prototype.disCount = function () {
+            if (this.year == 2014) {
+                this.price -= this.price * 0.1;
+            }
+            else if (this.year < 2014) {
+                this.price -= this.price * 0.5;
+            }
+        };
+
+        output = '';
+        for (var i in books) {
+            books[i].disCount();
+            output += books[i].toString() + '\n';
+        }
+        alert(output);
+		
+    </script>
+</head>
+<body>
+
+</body>
+</html>
