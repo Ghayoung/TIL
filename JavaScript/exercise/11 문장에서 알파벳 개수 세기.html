@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+
+        var input = prompt('문장입력', '문장');
+
+        var count = 0; //a 또는 A의 개수
+        var temp = input;
+        for (var i = 0; i < input.length; i++){
+            if (input.charAt(i) == 'a') {
+                count++;
+                temp = temp.replace('a', '*');
+            }
+            else if (input.charAt(i) == 'A') {
+                count++;
+                temp = temp.replace('A', '*');
+            }
+        }
+        var output = '';
+        output += '문장 = ' + input + '\n';
+        output += '길이 = ' + input.length + '\n';
+        output += 'a 또는 A의 개수 = ' + count + '\n';
+        output += '변환 결과 = ' + temp;
+        alert(output);
+		
+    </script>
+</head>
+<body>
+
+</body>
+</html>
