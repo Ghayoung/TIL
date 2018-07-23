@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+
+        var input = prompt('이메일을 입력해 주세요', '이메일');
+        var bool = false;
+        if ((input.match('co.kr') || input.match('com') || input.match('net') || input.match('or.kr') || input.match('go.kr')) && input.match('@')) {
+            bool = true;
+        }
+        if (bool) {
+            document.write('이메일 주소: ' + input);
+        }
+        else {
+            alert('유효하지 않은 이메일 주소입니다');
+        }
+		
+    </script>
+</head>
+<body>
+
+</body>
+</html>
