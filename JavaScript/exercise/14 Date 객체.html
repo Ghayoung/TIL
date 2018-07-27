@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+
+        var today = new Date(); //오늘 날짜
+        today.setMonth(today.getMonth() + 1);
+        var wc = new Date(2002, 4, 31); //2002년 월드컵
+        var lastday = new Date(today.getFullYear(), 12, 31); //금년말일(12/31)
+
+        var output = '';
+        output += '오늘은 ' + today.getFullYear() + '년 ' + today.getMonth() + '월 ' + today.getDate() + '일입니다.\n';
+        output += wc.getFullYear() + '년 월드컵은 ' + wc.getFullYear() + '년 ' + wc.getMonth() + '월 ' + wc.getDate() + '일에 있었습니다.\n';
+        output += '금년말일까지 날짜는' + Math.floor((lastday.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)) + '일 남았습니다.';
+        alert(output);
+		
+    </script>
+</head>
+<body>
+
+</body>
+</html>
