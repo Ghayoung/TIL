@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+
+        window.onload = function () {
+            var car2 = document.createElement('img');
+            car2.setAttribute('src', 'car2.png');
+            car2.setAttribute('width', 100);
+            car2.setAttribute('height', 100);
+            document.body.appendChild(car2);
+
+            var car1 = document.getElementById('car1');
+
+            var car1X = 0;
+            var car2X = 0;
+            
+            car1.style.position = 'absolute';
+            car2.style.position = 'absolute';
+            
+            var moveCar1 = setInterval(function () {
+                var vx = Math.random() * 10; //이동할 거리 랜덤으로 지정
+                car1X += vx; //현재 거리 + 이동할 거리
+                if (car1X >= 700) {
+                    car1.style.left = '700px';
+                    clearInterval(moveCar1); //700px에서 종료
+                } else {
+                    car1.style.left = car1X + 'px';
+                }
+            }, 1000 / 30);
+            
+            var moveCar2 = setInterval(function () {
+                var vx = Math.random() * 10; //이동할 거리 랜덤으로 지정
+                car2X += vx; //현재 거리 + 이동할 거리
+                if (car2X >= 700) {
+                    car2.style.left = '700px';
+                    clearInterval(moveCar2); //700px에서 종료
+                } else {
+                    car2.style.left = car2X + 'px';
+                }
+            }, 1000 / 30);
+        };
+		
+    </script>
+</head>
+<body>
+    <img id="car1" src="car1.png" width="100" height="100" />
+</body>
+</html>
