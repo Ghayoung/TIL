@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+
+        window.onload = function () {
+            document.getElementById('my-form').onsubmit = function () {
+                var pass = document.getElementById('pass').value;
+                var passCheck = document.getElementById('pass-check').value;
+                var email = document.getElementById('email').value;
+                var spass = String(pass);
+                var error = false;
+                if (spass.length < 8) {
+                    alert('비밀번호의 길이는 8자 이상이어야 합니다');
+                    error = true;
+                }
+                if (pass != passCheck) {
+                    alert('비밀번호와 비밀번호 확인이 일치하지 않습니다');
+                    error = true;
+                }
+                if (!((email.match('co.kr') || email.match('com') || email.match('net') || email.match('or.kr') || email.match('go.kr')) && email.match('@'))){
+                    alert('유효하지 않은 이메일 주소입니다');
+                    error = true;
+                }
+                if (error) {
+                    return false;
+                } else {
+                    alert('확인성공');
+                }
+            };
+        };
+		
+    </script>
+</head>
+<body>
+    <form id="my-form">
+        <label for="name">이름</label><br/>
+        <input type="text" name="name" id="name" /><br/>
+        <label for="pass">비밀번호</label><br/>
+        <input type="password" name="pass" id="pass" /><br/>
+        <label for="pass-check">비밀번호 확인</label><br/>
+        <input type="password" id="pass-check" /><br/>
+        <label for="email">이메일주소</label><br/>
+        <input type="text" id="email" /><br/>
+        <input type="submit" value="제출" />
+    </form>
+</body>
+</html>
