@@ -1,0 +1,22 @@
+<h1>학생 목록1</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>id</th>      
+      <th>학번</th>
+      <th>이름</th>
+      <th>학과</th>
+      <th>학년</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let s of students">
+      <td>{{ s.id }}</td>
+      <td>{{ s.studentNumber }}</td>
+      <td>{{ s.name }}</td>
+      <td>{{ s.department.departmentName }}</td>
+      <td>{{ s.year }}</td>
+    </tr>
+  </tbody>
+</table>
