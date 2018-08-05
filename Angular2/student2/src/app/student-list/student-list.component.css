@@ -1,0 +1,4 @@
+tbody tr:hover { background-color: #ffa; cursor: pointer; }
+input { max-width: 200px; }
+button { margin-bottom: 5px; }
+tr.red { background-color: #fee; }
