@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('#btn1').click(function () {
+                $('#img1').attr('src', 'images/click_btn_on.png');
+            });
+            $('#btn2').hover(function () {
+                $('#img2').attr('src', 'images/over_btn_on.png');
+            }, function () {
+                    $('#img2').attr('src', 'images/over_btn_out.png');
+            });
+            $('#btn3').hover(function () {
+                $('#img3').attr('src', 'images/out_btn_out.png');
+            }, function () {
+                $('#img3').attr('src', 'images/out_btn_on.png');
+            });
+            $('#btn3').focus(function () {
+                $('#img3').attr('src', 'images/out_btn_out.png');
+            });
+            $('#btn3').blur(function () {
+                $('#img3').attr('src', 'images/out_btn_on.png');
+            });
+        });
+		
+    </script>
+</head>
+<body>
+    <h1>마우스 클릭했을 때 이미지 변경</h1>
+    <p>( images/click_btn_out.png → images/click_btn_on.png )</p>
+    <p>
+        <a href="#" id="btn1">
+            <img src="images/click_btn_out.png" id="img1" />
+        </a>
+    </p>
+    <h1>마우스 오버했을 때 이미지 변경</h1>
+    <p>( images/over_btn_out.png → images/over_btn_on.png )</p>
+    <p>
+        <a href="#" id="btn2">
+            <img src="images/over_btn_out.png" id="img2" />
+        </a>
+    </p>
+    <h1>마우스 아웃했을 때 이미지 변경</h1>
+    <p>( images/out_btn_out.png → images/out_btn_on.png )</p>
+    <p>
+        <a href="#" id="btn3">
+            <img src="images/out_btn_out.png" id="img3" />
+        </a>
+    </p>
+</body>
+</html>
