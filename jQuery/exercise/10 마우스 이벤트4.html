@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('.zoom > button').eq(0).click(function () {
+                var fontstring = $('#txt_wrap').css('font-size');
+                var fontsize = parseInt(fontstring);
+                fontsize++;
+                $('#txt_wrap').css('font-size', fontsize);
+            });
+
+            $('.zoom > button').eq(1).click(function () {
+                $('#txt_wrap').css('font-size', '16px');
+            });
+
+            $('.zoom > button').eq(2).click(function () {
+                var fontstring = $('#txt_wrap').css('font-size');
+                var fontsize = parseInt(fontstring);
+                fontsize--;
+                $('#txt_wrap').css('font-size', fontsize);
+            });
+
+            $('#fs').change(function () {
+                $('#txt_wrap').css('color', this.value);
+            });
+        });
+		
+    </script>
+</head>
+<body>
+    <div id="f_wrap">
+        <dl>
+            <dt>글자크기</dt>
+            <dd class="zoom">
+                <button>+</button>
+                <button>0</button>
+                <button>-</button>
+            </dd>
+            <dt>글자모양</dt>
+            <dd class="f_style">
+                <select name="fs" id="fs">
+                    <option value="black">검정</option>
+                    <option value="blue">파랑</option>
+                    <option value="red">빨강</option>
+                    <option value="yellow">노랑</option>
+                </select>
+            </dd>
+        </dl>
+    </div>
+    <p id="txt_wrap">
+        송충이는 솔잎을 먹어야 산다.
+    </p>
+</body>
+</html>
