@@ -21,8 +21,8 @@ import org.springframework.security.web.authentication.AbstractAuthenticationPro
 import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.okihouse.security.common.handler.SecurityUserLoginHandler;
-import com.okihouse.util.AjaxUtils;
+import com.secutest.security.common.handler.SecurityUserLoginHandler;
+import com.secutest.util.AjaxUtils;
 import com.secutest.util.JsonUtils;
 
 public class SecurityUserLoginProcessingFilter extends AbstractAuthenticationProcessingFilter {
