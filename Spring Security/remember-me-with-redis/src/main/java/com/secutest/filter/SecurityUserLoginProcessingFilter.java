@@ -21,7 +21,7 @@ import org.springframework.security.web.authentication.AbstractAuthenticationPro
 import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.secutest.security.common.handler.SecurityUserLoginHandler;
+import com.secutest.handler.SecurityUserLoginHandler;
 import com.secutest.util.AjaxUtils;
 import com.secutest.util.JsonUtils;
 
