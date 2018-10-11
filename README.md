@@ -35,11 +35,13 @@ Today I learned - 하루동안 스터디한 내용을 기록합니다.
 * ★Netty
 * ★Spring boot
 * ★Redis
+* ★Angular
+* ★Node.js
 * Reverse Engineering
-* Angular
-* Node.js
 * React
 * Flux
 * Redux
 * Docker
 * Phoenix Server
+* Unix
+* Linux
