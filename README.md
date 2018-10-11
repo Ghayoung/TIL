@@ -30,18 +30,15 @@ Today I learned - 하루동안 스터디한 내용을 기록합니다.
 
 ****
 # Now studying(★)/Want to study:
-* ★Algorithm
-* ★BlockChain
-* ★Netty
-* ★Spring boot
 * ★Redis
-* ★Angular
 * ★Node.js
+* ★Unix
+* ★Linux
 * Reverse Engineering
 * React
 * Flux
 * Redux
 * Docker
 * Phoenix Server
-* Unix
-* Linux
+* Unity C#
+* Security
