@@ -9,6 +9,9 @@ Today I learned - 하루동안 스터디한 내용을 기록합니다.
 ## AWS + Spring boot
 1. S3Test: Spring boot 프로젝트와 AWS S3 연동 예제
 
+## Angular2
+자바스크립트 프레임워크 Angular(Version 2) 실습 프로젝트 모음
+
 ## BlockChain
 1. SHA-256: SHA-256 해시 값을 구하는 함수를 작성하여 간단히 채굴이 이루어지는 원리를 알아보는 예제
 2. miniBlockChain: 간단한 블록체인을 직접 구현해 보는 예제
