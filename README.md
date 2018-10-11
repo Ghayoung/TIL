@@ -34,11 +34,11 @@ Today I learned - 하루동안 스터디한 내용을 기록합니다.
 * ★Node.js
 * ★Unix
 * ★Linux
+* ★Unity C#
 * Reverse Engineering
 * React
 * Flux
 * Redux
 * Docker
 * Phoenix Server
-* Unity C#
 * Security
