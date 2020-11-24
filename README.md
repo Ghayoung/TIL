@@ -42,4 +42,4 @@ Today I learned - 하루동안 스터디한 내용을 기록합니다.
 * Docker
 * Phoenix Server
 * Security
-*PL/SQL
+* PL/SQL
