@@ -1,0 +1,77 @@
+<html>
+<head>
+  
+    <meta charset="utf-8" />
+  <!--vue.js 엔진이 이 창에서 실행된다-->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!--defer키워드: 다운로드와 실행이 뒤로 늦춰진다-->
+  <script defer src="/__/firebase/7.13.1/firebase-app.js"></script>
+  <script defer src="/__/firebase/7.13.1/firebase-database.js"></script>
+  <script defer src="/__/firebase/init.js"></script>
+
+</head>
+<body>
+
+  <div id="app">
+    <h1>제목: {{ title }}</h1>
+    <p>내용: {{ body }}</p>
+    <br/>
+    <button type="button" v-on:click="edit">수정하기</button>
+    <hr>
+    <div v-show="editing">
+        <p>저장하면 제목과 내용이 변경됩니다.</p>
+        제목: <input type="text" v-model="title_edit" /><br/>
+        내용: <input type="text" v-model="body_edit" /><br/>
+        <br/>
+        <button type="button" v-on:click="save">저장</button>
+        <button type="button" v-on:click="cancel">취소</button>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+    //Vue 객체를 생성하여 전역 변수 app에 대입한다.
+    //Vue 생성자 파라미터는 javascript 객체이다.
+    var app = new Vue({
+      el: '#app', //Vue 앱의 기능이 실행될 태그의 id를 지정한다.
+      data: {
+        title: 'loading...',
+        body: 'loading....',
+        title_edit: '',
+        body_edit: '',
+        editing: false
+      }, //앱의 속성을 선언한 코드이다. (멤버 변수)
+      methods: {
+          edit: function() {
+              this.editing = true;
+          },
+          save: function () {
+              let helloRef = firebase.database().ref("hello");
+              helloRef.set({title: this.title_edit, body: this.body_edit});
+              this.editing = false;
+              alert("저장되었습니다.");
+          },
+          cancel: function() {
+              this.editing = false;
+          }
+      } //저장 버튼을 누르면 값이 DB에 저장된다.
+    })    
+
+    window.onload = function() {
+      //firebase DB의 "hello" 항목에 대한 원격 참조 객체를 구해서 helloRef 지역 변수에 대입한다.
+      let helloRef = firebase.database().ref("hello");
+      //helloRef가 참조하는 값이 변경되자마자 화살표 함수가 실행된다.
+      helloRef.on('value', (snapshot) => {
+        //전달된 DB 항목의 값을 꺼내서 hello 지역 변수에 대입한다. 
+        let hello = snapshot.val();
+        //전달된 DB 항목의 title 속성의 값을, 앱의 title 속성에 대입한다.
+        app.title = hello.title;
+        //전달된 DB 항목의 body 속성의 값을, 앱의body 속성에 대입한다.
+        app.body = hello.body;
+      });
+    };
+
+   </script>
+
+</body>    
+</html>
