@@ -1,0 +1,71 @@
+<html>
+<head>
+  
+  <meta charset="utf-8" />
+  <!--vue.js 엔진이 이 창에서 실행된다-->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!--defer키워드: 다운로드와 실행이 뒤로 늦춰진다-->
+  <script defer src="/__/firebase/7.13.1/firebase-app.js"></script>
+  <script defer src="/__/firebase/7.13.1/firebase-database.js"></script>
+  <script defer src="/__/firebase/init.js"></script>
+  <style>
+    div.app { padding: 20px; margin: 30px auto; max-width: 600px; 
+      border: 1px solid #ccc; box-shadow: 3px 3px 3px #aaa; }
+    label { font-size: 20pt; }
+    input[type=radio] { width: 20px; height: 20px; }
+    input[type=checkbox] { width: 20px; height: 20px; }
+    div.hello { margin: 30px; padding: 50px; 
+      background-color: #a0f3d3; border: 1px solid gray; 
+      text-align: center; font-size: 20pt; }
+  </style>
+</head>
+<body>
+
+  <p><a href="/">메인으로</a></p>
+  <h3>연습2: v-model, v-show, v-if, v-bind</h3>
+  <br/>
+  <hr>
+  <div id="app" class="app">
+    <h1>
+      <!--v-model="A" -> vue 객체의 data 안에 있는 "A" 를 조작한다.--> 
+      <input type="checkbox" v-model="visible" />
+      visible: {{ visible }}
+    </h1>
+    <h2>typeof visible: {{ typeof visible }}</h2>
+    <div class="hello" v-show="visible">v-show</div> <!--태그의 보이는 상태만 변화한다.-->
+    <div class="hello" v-if="visible">v-if</div> <!--태그가 만들어졌다 없어졌다 한다.-->
+  </div>
+  <div id="app2" class="app">
+    <!-- radio 버튼을 체크할 때 visible에 대입되는 값은 문자열이다. -->
+    <!-- v-bind 접두어를 붙이면 radio 버튼을 체크할 때 boolean 값을 대입할 수 있다.-->
+    <label>
+      <input type="radio" v-bind:value="true" v-model="visible" />
+      show
+    </label>
+    <label>
+      <input type="radio" v-bind:value="false" v-model="visible" />
+      hide
+    </label>
+    <h1>visible: {{ visible }}</h1>
+    <h2>typeof visible: {{ typeof visible }}</h2>
+    <div class="hello" v-show="visible">v-show</div>
+    <div class="hello" v-if="visible">v-if</div>
+  </div>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        visible: true
+      }
+    })
+    var app2 = new Vue({
+      el: '#app2',
+      data: {
+        visible: true
+      }
+    })
+  </script>
+
+</body>    
+</html>

@@ -1,0 +1,53 @@
+<html>
+<head>
+  
+  <meta charset="utf-8" />
+  <!--vue.js 엔진이 이 창에서 실행된다-->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!--defer키워드: 다운로드와 실행이 뒤로 늦춰진다-->
+  <script defer src="/__/firebase/7.13.1/firebase-app.js"></script>
+  <script defer src="/__/firebase/7.13.1/firebase-database.js"></script>
+  <script defer src="/__/firebase/init.js"></script>
+  <style>
+    div#app { padding: 30px; margin: 30px auto; max-width: 300px; text-align: center;
+      border: 1px solid #ccc; box-shadow: 3px 3px 3px #aaa; }
+    div#time { font-size: 25pt; padding: 5px; margin: 0px auto; background: #ccc; 
+      max-width: 200px; border: 1px solid black; }
+  </style>
+</head>
+<body>
+
+  <p><a href="/">메인으로</a></p>
+  <h3>연습3: 현재 시각 출력</h3>
+  <br/>
+  <hr>
+  <div id="app" class="app">
+    <h1>현재시각</h1>
+    <div id="time">{{ time }}</div>
+  </div>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        time: ''
+      },
+      mounted: function() { //앱이 생성된 후 화면이 그려지기 전에 호출된다.
+        let callback = () => this.time = formatTime(new Date());
+        callback(); //처음 1초 동안 값이 안보이는 문제 해결
+        setInterval(callback, 1000); //1초마다 한 번씩 앱의 time 속성에 현재 시각 객체를 대입한다.
+      }
+    })
+
+    function formatTime(date) {
+      let h = date.getHours(), m = date.getMinutes(), s = date.getSeconds();
+      if(h < 10) h = "0" + h;
+      if(m < 10) m = "0" + m;
+      if(s < 10) s = "0" + s;
+
+      return h + ":" + m + ":" + s;
+    }
+  </script>
+
+</body>    
+</html>
