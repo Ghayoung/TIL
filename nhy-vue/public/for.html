@@ -1,0 +1,107 @@
+<html lang="ko">
+<head>
+  
+  <meta charset="utf-8" />
+  <!--vue.js 엔진이 이 창에서 실행된다-->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!--defer키워드: 다운로드와 실행이 뒤로 늦춰진다-->
+  <script defer src="/__/firebase/7.13.1/firebase-app.js"></script>
+  <script defer src="/__/firebase/7.13.1/firebase-database.js"></script>
+  <script defer src="/__/firebase/init.js"></script>
+  <style>
+    div#app { padding: 30px; margin: 30px auto; max-width: 600px;
+      border: 1px solid #ccc; box-shadow: 3px 3px 3px #aaa;  }
+    span { display: inline-block; margin: 5px; padding: 8px 15px;
+      border: 1px solid black; }
+    table { border-collapse: collapse; width: 400px; }
+    td { padding: 5px; border: 1px solid #aaa;  text-align: center; }
+    tr:nth-child(1) { background-color: #ddd; }
+  </style>
+</head>
+<body>
+
+  <p><a href="/">메인으로</a></p>
+  <h3>연습6: 목록 출력</h3>
+  <br/>
+  <hr>
+  <div id="app" class="app">
+    v-for="s in words"<br/>
+    <span v-for="s in words">
+      {{ s }} <!-- words 배열의 크기만큼 span 태그들이 반복 생성된다.-->
+    </span>
+    <br/>
+    <br/>
+    v-for="(s, index) in words"<br/>
+    <span v-for="(s, index) in words">
+      {{ index }}-{{ s }} <!-- 원소 값이 s, 인덱스 값이 index에 대입된다.-->
+    </span>
+    <br/>
+    <br/>
+    v-for="(s, index) in words" v-bind:key="index"<br/>
+    <span v-for="(s, index) in words" v-bind:key="index">
+      {{ index }}-{{ s }} <!-- Vue 앱의 속성 값이 변경되면, 그 값이 출력되는 태그 부분도 즉시 변경된다.-->
+    </span>
+    <br/>
+    <br/>
+    v-for="(person, index) in persons" v-bind:key="person.id"<br/>
+    <table>
+      <tr>
+        <td>index</td><td>ID</td><td>이름</td><td>나이</td>
+      </tr>
+      <tr v-for="(person, index) in persons" v-bind:key="person.id">
+        <td>{{ index }}</td>
+        <td>{{ person.id }}</td>
+        <td>{{ person.name }}</td>
+        <td>{{ person.age }}</td>
+      </tr>
+    </table>
+    <br/>
+    <br/>
+    v-for="value in person"<br/>
+    <span v-for="value in person">
+      {{ value }} <!-- 속성 탐색 순서: 숫자(오름차순) -> 문자(생성순) -->
+    </span>
+    <br/>
+    <br/>
+    v-for="(value, key, index) in person2" v-bind:key="key"<br/>
+    <span v-for="(value, key, index) in person2" v-bind:key="key">
+      {{ index }}, {{ key }}, {{ value }} <!-- v-for="(속성값, 속성명, 인덱스)" -->
+    </span>
+    <br/>
+    <br/>
+    v-for="i in size"<br/>
+    <span v-for="i in size"> <!-- 지역 변수 i의 값이 1부터 size까지 1씩 증가한다. -->
+      {{ i }}
+    </span>
+    <br/>
+    <br/>
+    중첩된 v-for 구현<br/>
+    <table>
+      <tr v-for="r in row_size">
+        <td v-for="c in col_size">
+          {{ (r - 1) * row_size + c }}
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        words: ["zero", "one", "two", "three", "four", "five"],
+        persons: [{ id: 101, name: "A", age: 16 },
+                  { id: 102, name: "B", age: 18 },
+                  { id: 103, name: "C", age: 19 },
+                  { id: 104, name: "D", age: 17 }],
+        person : { id: 105, name: "E", age: 16, "3":"three", "2":"two", 1:"one"},
+        person2 : { id: 106, name: "F", age: 14},
+        size: 5,
+        row_size: 4,
+        col_size: 4
+      }
+    })
+  </script>
+
+</body>    
+</html>
