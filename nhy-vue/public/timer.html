@@ -25,6 +25,7 @@
   <hr>
   <div id="app">
     <h1>타이머</h1>
+    <h3>종료 시 소리가 재생됩니다.</h3>
     <div>
       <input type="text" v-model="h"/> :
       <input type="text" v-model="m"/> :
@@ -36,6 +37,10 @@
 
   <script type="text/javascript">
     const SS = 1000, MM = 1000 * 60, HH = 1000 * 60 * 60;
+
+    //mp3파일을 재생하는 코드
+    var audio = new Audio();
+    audio.src = "ding-dong.mp3";
 
     var app = new Vue({
       el: '#app',
@@ -63,6 +68,7 @@
             if (milisec < 1000) {
               clearInterval(this.timerId);
               this.run = false;
+              audio.play(); //타이머가 끝나면 재생된다.
             }
           };
           this.timerId = setInterval(callback, 500);
