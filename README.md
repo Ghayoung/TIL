@@ -28,6 +28,14 @@ Today I learned - 하루동안 스터디한 내용을 기록합니다.
 1. remember-me-with-redis: redis를 이용한 remember-me 구현 예제
 2. spring-security-basic: spring security 기본 예제(강의자료 참고)
 
+## TOAST UI Grid
+1. hands-on-labs.toastui.grid-account-book
+가계부 만들기 예제 실습
+https://forward.nhn.com/2020/seoul/hands-on-labs/toastui.grid-account-book/index.html
+
+## Vue.js
+1. nhy-vue: vue 기초 실습, 대학 강의자료 참고
+
 ****
-# Now studying(★)/Want to study:
-* ★Flutter
+# Now studying
+* Flutter
